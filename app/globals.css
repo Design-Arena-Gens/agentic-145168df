@@ -1,0 +1,219 @@
+:root {
+  --background: #f8f7f4;
+  --surface: #ffffff;
+  --surface-muted: #f1f0ec;
+  --accent: #111827;
+  --accent-soft: rgba(17, 24, 39, 0.05);
+  --border: rgba(17, 24, 39, 0.08);
+  --text: #111827;
+  --text-muted: rgba(17, 24, 39, 0.6);
+  --success: #0d9488;
+  --warning: #f97316;
+  --radius: 18px;
+  --shadow: 0 20px 45px -30px rgba(17, 24, 39, 0.3);
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 80px 24px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card .label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.surface-muted {
+  background: var(--surface-muted);
+  border-radius: var(--radius);
+  padding: 18px;
+  border: 1px solid transparent;
+}
+
+.input,
+textarea,
+button {
+  font-family: inherit;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  transition: border 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+  border-color: rgba(17, 24, 39, 0.4);
+  box-shadow: 0 0 0 4px rgba(17, 24, 39, 0.08);
+}
+
+button {
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+button.primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+button.ghost {
+  background: transparent;
+}
+
+.badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--text-muted);
+}
+
+.progress-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid transparent;
+  transition: border 0.2s ease;
+}
+
+.task-item.completed {
+  border-color: rgba(13, 148, 136, 0.4);
+  background: rgba(13, 148, 136, 0.08);
+}
+
+.task-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 2px solid var(--border);
+  cursor: pointer;
+}
+
+.task-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.task-details span:last-child {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-area {
+  min-height: 120px;
+  resize: vertical;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-top: 48px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
